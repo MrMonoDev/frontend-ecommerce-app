@@ -3,7 +3,7 @@
     background-color: #ffffff;
     left: 0;
     right: 0;
-    top: 0;
+    top: 0px;
     bottom: 0;
     margin: auto;
     width: 300px;
@@ -83,7 +83,7 @@
     to{right:-85px;}
   }
   
-  img{
+  .img-login{
     display: block;
     width: 65px;
     height: 65px;

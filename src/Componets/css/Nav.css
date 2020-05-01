@@ -1,0 +1,34 @@
+.img-nav{
+    position: relative;
+    float: left;
+    width: 65px;
+    height: 65px;
+    left: 20px;
+}
+.login-nav{
+    float: right;
+    position: inherit;
+}
+.contact-nav{
+    float: right;
+    position: inherit;
+}
+.about-nav{
+    float: right;
+    position: inherit;
+}
+.header-nav{
+    position: static;
+    margin: 0px 0px 50px 0px;
+    background: royalblue;
+    height: 70px;
+    box-shadow: 1px 1px 4px 1px black;
+}
+.header-nav b{
+    margin-right: 50px;
+    margin-top: 20px;
+}
+.header-nav b:active{
+    color: cornsilk;
+}
+

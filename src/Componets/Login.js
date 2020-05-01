@@ -97,7 +97,7 @@ class Form extends Login{
     return(
       <div className="login">
         <h3 className="title">{this.state.func}</h3>
-        <img src={Image} alt="languages"/>
+        <img class="img-login" src={Image} alt="languages"/>
         <div className="inner-margin">
         <form onSubmit={this.onSub}>
           <label>User</label><br/>
