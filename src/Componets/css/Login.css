@@ -20,7 +20,7 @@
     height: 500px;
     border-radius: 5px;
     box-shadow: 1px 1px 9px -1px black;
-    z-index: 2;
+    z-index: 1;
   }
   .title{
     position: relative;
@@ -59,6 +59,8 @@
     border: none;
     width: 70px;
     height: 470px;
+    border-radius: 20px;
+    outline: none;
   }
   .rotate {
     position: relative;
@@ -83,9 +85,9 @@
   
   .nuser-wrapper{
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: -25px;
-  z-index: 1;
+  z-index: 0;
   }
   
   @keyframes mymove{
