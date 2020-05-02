@@ -1,5 +1,15 @@
+.father {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0px;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 500px;
+}
 .login {
-    position: absolute;
+    position: relative;
     background-color: #ffffff;
     left: 0;
     right: 0;
@@ -10,6 +20,7 @@
     height: 500px;
     border-radius: 5px;
     box-shadow: 1px 1px 9px -1px black;
+    z-index: 2;
   }
   .title{
     position: relative;
@@ -43,19 +54,18 @@
     cursor: pointer;
   }
   .nuser{
+    position: relative;
     background-color: cornflowerblue;
     border: none;
-    width: 90px;
-    height: 180px;
-    border-radius: 10px 20px 130px;
+    width: 70px;
+    height: 470px;
   }
   .rotate {
-    color: #eeeeee;
     position: relative;
-    bottom: 20px;
-    left: 30px;
+    color: #eeeeee;
+    top: 0px;
+    left: 20px;
     transform: rotate(90deg);
-    /* Legacy vendor prefixes that you probably don't need... */
     /* Safari */
     -webkit-transform: rotate(90deg);
     /* Firefox */
@@ -75,7 +85,7 @@
   position: absolute;
   top: 10px;
   right: -25px;
-  z-index: -1;
+  z-index: 1;
   }
   
   @keyframes mymove{

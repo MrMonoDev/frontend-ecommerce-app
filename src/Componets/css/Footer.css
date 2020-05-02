@@ -1,0 +1,11 @@
+.back-foo{
+    position: relative;
+    background:royalblue;
+    height: 50px;
+    margin-top: 45px;
+    box-shadow: 1px -1px 4px 1px black;
+}
+.back-foo b{
+    float: left;
+    text-align: center;
+}

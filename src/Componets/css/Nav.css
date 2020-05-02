@@ -1,8 +1,8 @@
 .img-nav{
     position: relative;
     float: left;
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     left: 20px;
 }
 .login-nav{
@@ -21,12 +21,16 @@
     position: static;
     margin: 0px 0px 50px 0px;
     background: royalblue;
-    height: 70px;
+    height: 50px;
     box-shadow: 1px 1px 4px 1px black;
 }
 .header-nav b{
     margin-right: 50px;
-    margin-top: 20px;
+    margin-top: 12px;
+    color: black;
+}
+.header-nav b:hover{
+    font-size: 17px;
 }
 .header-nav b:active{
     color: cornsilk;

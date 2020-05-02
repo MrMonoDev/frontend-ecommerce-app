@@ -5,6 +5,7 @@ import Contact from './Componets/Contact';
 import About from './Componets/About';
 import Home from './Componets/Home';
 import Nav from './Componets/Nav';
+import Footer from './Componets/Footer';
 
 class App extends React.Component{
   constructor(props){
@@ -17,6 +18,7 @@ class App extends React.Component{
   render(){
     
     return(
+      <div>
       <Router>
         <Nav />
           <Switch>
@@ -25,7 +27,9 @@ class App extends React.Component{
           <Route path="/contact" exact component = {Contact}/>
           <Route path="/about" exact component = {About}/>
           </Switch>
+          <Footer />
       </Router>
+      </div>
       );
   }
 }

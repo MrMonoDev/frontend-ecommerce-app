@@ -95,6 +95,7 @@ class Form extends Login{
                       <button onClick={method} className="nuser"><div class='rotate'>{this.state.nuser}</div></button>
                       </div>;
     return(
+     <div class="father">
       <div className="login">
         <h3 className="title">{this.state.func}</h3>
         <img class="img-login" src={Image} alt="languages"/>
@@ -107,9 +108,11 @@ class Form extends Login{
           {regist}
           <button type="submit" className="submit" id="sub">{this.state.access}</button>
         </form>
-        {nButtRegist}
         </div>
-      </div>
+          </div>
+          {nButtRegist}
+    </div>
+      
       );
   }
 }
