@@ -1,5 +1,5 @@
 .back-foo{
-    position: relative;
+    position: sticky;
     background:royalblue;
     height: 50px;
     margin-top: 45px;

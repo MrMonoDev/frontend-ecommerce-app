@@ -6,6 +6,7 @@ import About from './Componets/About';
 import Home from './Componets/Home';
 import Nav from './Componets/Nav';
 import Footer from './Componets/Footer';
+import './Componets/css/App.css';
 
 class App extends React.Component{
   constructor(props){
@@ -18,7 +19,7 @@ class App extends React.Component{
   render(){
     
     return(
-      <div>
+      <div class="body">
       <Router>
         <Nav />
           <Switch>
