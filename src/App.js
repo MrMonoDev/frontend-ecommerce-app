@@ -7,6 +7,7 @@ import Home from './Componets/Home';
 import Nav from './Componets/Nav';
 import Footer from './Componets/Footer';
 import './Componets/css/App.css';
+import 'antd/dist/antd.css';
 
 class App extends React.Component{
   constructor(props){

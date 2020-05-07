@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/Login.css';
 import Image from './img/valhala1000.png';
+import { DatePicker } from 'antd';
 
 class Login extends React.Component {
   constructor(props) {
@@ -81,8 +82,9 @@ class Form extends Login {
         <input placeholder="Repeat password" class="irepeat-pass" type="password" onChange={this.comparePass} required /><br />
         {this.state.error}
         <input placeholder="Email" class="iemail" type="text" name="email" onChange={this.handleChange} required />
-        <label class="lbirthdate">Birthdate</label>
-        <input type="date" class="ibirthday"/>
+        <div>
+          <DatePicker bordered={false}/><br />
+        </div>
       </div>;
     }
     if (this.state.nuser !== this.state.cuser) {
