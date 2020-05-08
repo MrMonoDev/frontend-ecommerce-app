@@ -35,4 +35,9 @@
 .header-nav b:active{
     color: cornsilk;
 }
+.search-container{
+    position: absolute;
+    left: 100px;
+    top: 10px;
+}
 

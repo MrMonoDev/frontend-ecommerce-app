@@ -1,7 +1,8 @@
 import React from 'react';
 import './css/Login.css';
 import Image from './img/valhala1000.png';
-import { DatePicker } from 'antd';
+import {DatePicker, Input } from 'antd';
+import {UserOutlined, MailOutlined} from '@ant-design/icons';
 
 class Login extends React.Component {
   constructor(props) {
@@ -79,9 +80,9 @@ class Form extends Login {
   render() {
     if (this.state.func === this.state.sfunc) {
       var regist = <div>
-        <input placeholder="Repeat password" class="irepeat-pass" type="password" onChange={this.comparePass} required /><br />
+        <Input.Password className="input" placeholder="Repeat Password" onChange={this.comparePass} required/><br />
         {this.state.error}
-        <input placeholder="Email" class="iemail" type="text" name="email" onChange={this.handleChange} required />
+        <Input className="input" name="email" placeholder="Email" prefix={<MailOutlined />} onChange={this.handleChange} required/>
         <div>
           <DatePicker bordered={false}/><br />
         </div>
@@ -102,8 +103,8 @@ class Form extends Login {
           <img class="img-login" src={Image} alt="languages" />
           <div className="inner-margin">
             <form onSubmit={this.onSub}>
-              <input placeholder="Username" type="text" className="iuser" name="user" onChange={this.handleChange} required /><br />
-              <input placeholder="Pasword" type="password" class="ipassword" name="password" onChange={this.handleChange} required /><br />
+              <Input className="input" name="user" placeholder="User" prefix={<UserOutlined />} onChange={this.handleChange} required/><br />
+              <Input.Password className="input" name="password" placeholder="Password" onChange={this.handleChange} required/><br />
               {regist}
               <button type="submit" className="submit" id="sub">{this.state.access}</button>
             </form>

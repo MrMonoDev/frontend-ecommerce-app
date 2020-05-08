@@ -91,15 +91,8 @@
     text-align: center;
   
   }
-  input{
-    outline: none;
-    border-right: 0;
-    border-left: 0;
-    border-top: 0;
-    height: 25px;
-  }
-  input:hover{
-   background-color: rgb(236, 232, 240);
+  .input:hover{
+   background-color: rgb(255, 255, 255);
   }
   .inner-margin{
     margin-left: 60px;
@@ -154,24 +147,7 @@
   right: -25px;
   z-index: 0;
   }
-  .iuser:hover{
-    background-color: white;
-  }
-  .ipassword:hover{
-    background-color: white;
-  }
-  .irepeat-pass:hover{
-    background-color: white;
-  }
-  .iemail:hover{
-    background-color: white;
-  }
-  .ibirthday:hover{
-    background-color: white;
-  }
-  .lbirthdate{
-    font-size: 14px;
-  }
+  
   .img-login{
     display: block;
     width: 65px;
