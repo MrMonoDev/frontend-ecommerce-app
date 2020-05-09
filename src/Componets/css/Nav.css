@@ -24,20 +24,39 @@
     height: 50px;
     box-shadow: 1px 1px 4px 1px black;
 }
-.header-nav b{
+.header-nav div{
     margin-right: 50px;
     margin-top: 12px;
     color: black;
 }
-.header-nav b:hover{
-    font-size: 17px;
+.header-nav a{
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-size: 17px;    
 }
-.header-nav b:active{
-    color: cornsilk;
+.header-nav a:hover{
+    color: black;
 }
+.header-nav a:before{
+    content:'';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.4s ease-in-out 0s;
+}
+.header-nav a:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
 .search-container{
     position: absolute;
     left: 100px;
-    top: 10px;
+    top: -3px;
 }
 

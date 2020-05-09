@@ -17,25 +17,35 @@ class Home extends React.Component {
   render() {
 
     return (
-        <Carousel 
-         autoplaySpeed={4000} 
-         fade={true} 
-         pauseOnDotsHover={true} 
-         speed={5000} autoplay
-         >
-          <div>
-            <img src={image0} width="100%" height="600px"></img>
-          </div>
-          <div>
-            <img src={image1} width="100%" height="600px"></img>
-          </div>
-          <div>
-            <img src={image2} width="100%" height="600px"></img>
-          </div>
-          <div>
-            <img src={image3} width="100%" height="600px"></img>
-          </div>
-        </Carousel>
+      <Carousel
+        autoplaySpeed={2000}
+        fade={true}
+        pauseOnDotsHover={true}
+        speed={3000}
+        autoplay
+        dotPosition="left"
+      >
+        <div>
+          <h4>New cooler Corsair</h4>
+          <b>Keep cool your pc to get more  playing.</b>
+          <img src={image0} width="100%" height="500px"></img>
+        </div>
+        <div>
+          <h4>New Ryzen technologie</h4>
+          <b>Experience the other side of AI.</b>
+          <img src={image1} width="100%" height="500px"></img>
+        </div>
+        <div>
+          <h4>Nvidia as Never thought</h4>
+          <b>Forget about bootle neck whith this brand new.</b>
+          <img src={image2} width="100%" height="500px"></img>
+        </div>
+        <div>
+          <h4>Gigabite your Processor's home</h4>
+          <b>Low cost and high power.</b>
+          <img src={image3} width="100%" height="500px"></img>
+        </div>
+      </Carousel>
     );
   }
 }

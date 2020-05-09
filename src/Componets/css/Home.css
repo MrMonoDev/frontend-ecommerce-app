@@ -1,0 +1,16 @@
+div h4{
+    position: absolute;
+    top: 350px;
+    left: 600px;
+    z-index: 1;
+    color: blanchedalmond;
+    font-size: 50px;
+}
+div b{
+    position: absolute;
+    top: 410px;
+    left: 620px;
+    z-index: 1;
+    color: blanchedalmond;
+    font-size: 25px;
+}
