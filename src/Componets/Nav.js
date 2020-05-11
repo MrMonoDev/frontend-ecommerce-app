@@ -6,12 +6,6 @@ import { Input } from 'antd';
 import { LoginOutlined, MessageOutlined, InfoCircleOutlined } from '@ant-design/icons';
 
 class Nav extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
 
   render() {
     const { Search } = Input;
@@ -23,19 +17,19 @@ class Nav extends React.Component {
         </Link>
         <Link to="/about">
           <div class="about-nav">
-            <InfoCircleOutlined style={{fontSize:'15px', color:'#050505'}}/>
+            <InfoCircleOutlined style={{fontSize:'15px'}}/>
           <a>About</a>
           </div>
         </Link>
         <Link to="/contact">
           <div class="contact-nav">
-            <MessageOutlined style={{fontSize: '15px', color:'#050505'}}/>
+            <MessageOutlined style={{fontSize: '15px'}}/>
           <a>Contact</a>
           </div>
         </Link>
         <Link to="/login">
           <div class="login-nav">
-          <LoginOutlined style={{ fontSize: '15px', color: '#050505' }} />
+          <LoginOutlined style={{ fontSize: '15px' }} />
           <a>Login</a>
           </div>
         </Link>

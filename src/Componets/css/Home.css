@@ -1,4 +1,4 @@
-div h4{
+.carousel-cnt h4{
     position: absolute;
     top: 350px;
     left: 600px;
@@ -6,7 +6,7 @@ div h4{
     color: blanchedalmond;
     font-size: 50px;
 }
-div b{
+.carousel-cnt b{
     position: absolute;
     top: 410px;
     left: 620px;

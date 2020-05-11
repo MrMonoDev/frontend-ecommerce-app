@@ -1,20 +1,15 @@
 import React from 'react';
+import { cyan } from '@ant-design/colors';
 
-class About extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-         
-    }
+
+function About (){
+  const color = cyan;
+  return( 
+  <div>
+    <b style={{color:color[3]}} >About</b>
+  </div>
+  );
   }
-  
-  render(){
-    
-    return(
-      <div>About</div>
-      );
-  }
-}
 
+  export default About;
 
-export default About;
