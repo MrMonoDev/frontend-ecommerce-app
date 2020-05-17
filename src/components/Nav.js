@@ -1,14 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Image from './img/valhala1000.png';
-import './css/Nav.css';
-import { Input } from 'antd';
+import './styles/Nav.css';
 import { LoginOutlined, MessageOutlined, InfoCircleOutlined } from '@ant-design/icons';
 
 class Nav extends React.Component {
 
   render() {
-    const { Search } = Input;
     return (
 
       <div class="header-nav">
@@ -18,24 +16,21 @@ class Nav extends React.Component {
         <Link to="/about">
           <div class="about-nav">
             <InfoCircleOutlined style={{fontSize:'15px'}}/>
-          <a>About</a>
+          <b>About</b>
           </div>
         </Link>
         <Link to="/contact">
           <div class="contact-nav">
             <MessageOutlined style={{fontSize: '15px'}}/>
-          <a>Contact</a>
+          <b>Contact</b>
           </div>
         </Link>
         <Link to="/login">
           <div class="login-nav">
           <LoginOutlined style={{ fontSize: '15px' }} />
-          <a>Login</a>
+          <b>Login</b>
           </div>
         </Link>
-        <div className="search-container">
-          <Search className="search-box" placeholder="search on this website" enterButton />
-        </div>
       </div>
     );
   }

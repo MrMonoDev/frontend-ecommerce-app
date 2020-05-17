@@ -1,25 +1,25 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import Login from './Componets/Login';
-import Contact from './Componets/Contact';
-import About from './Componets/About';
-import Home from './Componets/Home';
-import Nav from './Componets/Nav';
-import Footer from './Componets/Footer';
-import './Componets/css/App.css';
-import 'antd/dist/antd.css';
+import Login from './components/Login';
+import Contact from './components/Contact';
+import About from './components/About';
+import Home from './components/Home';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import './components/styles/App.less';
+import 'antd/dist/antd.less';
+import {Button} from 'antd';
+
 
 class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-         
-    }
-  }
   
+  changeColor = () =>{
+    console.log("hola");
+  }
   render(){
     
     return(
+      
       <div class="body">
       <Router>
         <Nav />
@@ -31,6 +31,7 @@ class App extends React.Component{
           </Switch>
           <Footer />
       </Router>
+      <Button onClick={this.changeColor}>Default</Button>
       </div>
       );
   }

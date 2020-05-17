@@ -1,5 +1,5 @@
 import React from 'react';
-import './css/Login.css';
+import './styles/Login.css';
 import Image from './img/valhala1000.png';
 import {DatePicker, Input } from 'antd';
 import {UserOutlined, MailOutlined} from '@ant-design/icons';
