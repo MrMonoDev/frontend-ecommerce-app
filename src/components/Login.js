@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/Login.css';
 import Image from './img/valhala1000.png';
-import {DatePicker, Input } from 'antd';
+import {DatePicker, Input, Button, Form } from 'antd';
 import {UserOutlined, MailOutlined} from '@ant-design/icons';
 
 class Login extends React.Component {
@@ -16,9 +16,7 @@ class Login extends React.Component {
       cuser: "Cancel",
       user: "",
       password: "",
-      email: "",
-      error: ""
-
+      buttonE:false
     }
   }
 
@@ -26,11 +24,15 @@ class Login extends React.Component {
     this.setState({ func: this.state.sfunc });
     this.setState({ access: this.state.saccess });
     this.setState({ nuser: this.state.cuser });
+    this.setState({buttonE: true});
+    document.getElementById('user-btn').className = "nuser-wrapper-second";
   }
   cnlRegist = () => {
     this.setState({ func: "Login" });
     this.setState({ access: "Access" });
     this.setState({ nuser: "New user" });
+    this.setState({buttonE: false});
+    document.getElementById('user-btn').className = "nuser-wrapper";
   }
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -38,29 +40,18 @@ class Login extends React.Component {
     if (this.state.func === this.state.sfunc && event.target.name === "password") {
       var passVal = event.target.value;
       if (passVal.length >= 7) {
-        var e = "";
-        this.setState({ error: e })
-        document.getElementById('sub').removeAttribute("disabled", "");
+        this.setState({buttonE:false});
       } else {
-        e = <div className="error">
-          <p>Password too short!</p>
-        </div>;
-        this.setState({ error: e });
+        this.setState({buttonE:true});
       }
     }
   }
   comparePass = (event) => {
     var passVal = event.target.value;
     if (passVal === this.state.password && passVal.length >= 7) {
-      var e = "";
-      this.setState({ error: e })
-      document.getElementById('sub').removeAttribute("disabled", "");
+      this.setState({buttonE:false});
     } else {
-      e = <div className="error">
-        <p>Password is different!</p>
-      </div>;
-      this.setState({ error: e });
-      document.getElementById('sub').setAttribute("disabled", "");
+      this.setState({buttonE:true});
     }
   }
   onSub = (event) => {
@@ -70,13 +61,13 @@ class Login extends React.Component {
   render() {
 
     return (
-      <Form />
+      <FormL />
 
 
     );
   }
 }
-class Form extends Login {
+class FormL extends Login {
   render() {
     if (this.state.func === this.state.sfunc) {
       var regist = <div>
@@ -84,7 +75,9 @@ class Form extends Login {
         {this.state.error}
         <Input className="input" name="email" placeholder="Email" prefix={<MailOutlined />} onChange={this.handleChange} required/>
         <div>
-          <DatePicker bordered={false}/><br />
+        <Form.Item label="Birthday">
+         <DatePicker bordered={false}/><br />
+        </Form.Item> 
         </div>
       </div>;
     }
@@ -93,11 +86,11 @@ class Form extends Login {
     } else {
       method = this.cnlRegist;
     }
-    var nButtRegist = <div className="nuser-wrapper">
-      <button onClick={method} className="nuser"><div class='rotate'>{this.state.nuser}</div></button>
+    var nButtRegist = <div id="user-btn" className="nuser-wrapper">
+       <Button type="link" onClick={method}>{this.state.nuser}</Button>
     </div>;
     return (
-      <div class="father">
+      <div className="father">
         <div className="login">
           <h3 className="title">{this.state.func}</h3>
           <img class="img-login" src={Image} alt="languages" />
@@ -106,11 +99,11 @@ class Form extends Login {
               <Input className="input" name="user" placeholder="User" prefix={<UserOutlined />} onChange={this.handleChange} required/><br />
               <Input.Password className="input" name="password" placeholder="Password" onChange={this.handleChange} required/><br />
               {regist}
-              <button type="submit" className="submit" id="sub">{this.state.access}</button>
+              <Button type="primary" block disabled={this.state.buttonE}>{this.state.access}</Button>
             </form>
           </div>
-        </div>
         {nButtRegist}
+      </div>
       </div>
 
     );

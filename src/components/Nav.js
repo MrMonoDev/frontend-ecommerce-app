@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Image from './img/valhala1000.png';
-import './styles/Nav.css';
-import { LoginOutlined, MessageOutlined, InfoCircleOutlined } from '@ant-design/icons';
+import './styles/Nav.less';
 
 class Nav extends React.Component {
 
@@ -15,20 +14,17 @@ class Nav extends React.Component {
         </Link>
         <Link to="/about">
           <div class="about-nav">
-            <InfoCircleOutlined style={{fontSize:'15px'}}/>
-          <b>About</b>
+          <a href="#" style={{color:'#030852'}}>About</a>
           </div>
         </Link>
         <Link to="/contact">
           <div class="contact-nav">
-            <MessageOutlined style={{fontSize: '15px'}}/>
-          <b>Contact</b>
+          <a href="#" style={{color:'#030852'}}>Contact</a>
           </div>
         </Link>
         <Link to="/login">
           <div class="login-nav">
-          <LoginOutlined style={{ fontSize: '15px' }} />
-          <b>Login</b>
+          <a href="#" style={{color:'#030852'}}>Login</a>
           </div>
         </Link>
       </div>

@@ -5,17 +5,12 @@ import Contact from './components/Contact';
 import About from './components/About';
 import Home from './components/Home';
 import Nav from './components/Nav';
-import Footer from './components/Footer';
+import FooterP from './components/Footer';
 import './components/styles/App.less';
 import 'antd/dist/antd.less';
-import {Button} from 'antd';
-
 
 class App extends React.Component{
   
-  changeColor = () =>{
-    console.log("hola");
-  }
   render(){
     
     return(
@@ -29,9 +24,8 @@ class App extends React.Component{
           <Route path="/contact" exact component = {Contact}/>
           <Route path="/about" exact component = {About}/>
           </Switch>
-          <Footer />
+          <FooterP />
       </Router>
-      <Button onClick={this.changeColor}>Default</Button>
       </div>
       );
   }
