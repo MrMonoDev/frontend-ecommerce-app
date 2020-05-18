@@ -6,7 +6,7 @@ import image1 from "./img/gaming2.jpg";
 import image2 from "./img/gaming3.jpg";
 import image3 from "./img/gaming4.jpg";
 import product from "./img/Product1.png";
-import './styles/Home.css';
+import './styles/Home.less';
 
 class Home extends React.Component {
   render() {
@@ -26,36 +26,37 @@ class Home extends React.Component {
 
 function CarouselProduct () {
   return(
+    <div className="carousel-container">
     <Carousel
         autoplaySpeed={2000}
         fade={true}
         speed={3000}
         autoplay
         dotPosition="left"
-        centerMode={true}
 
       >
-        <div className="carousel-cnt">
+        <div>
           <h4>New cooler Corsair</h4>
           <b>Keep cool your pc to get more  playing.</b>
-          <img src={image0} width="100%" height="500px" alt="image1"></img>
+          <img src={image0} alt="image1"></img>
         </div>
-        <div className="carousel-cnt">
+        <div>
           <h4>New Ryzen technology</h4>
           <b>Experience the other side of AI.</b>
-          <img src={image1} width="100%" height="500px" alt="image2"></img>
+          <img src={image1} alt="image2"></img>
         </div>
-        <div className="carousel-cnt">
+        <div>
           <h4>Nvidia as Never thought</h4>
           <b>Forget about bootle neck whith this brand new.</b>
-          <img src={image2} width="100%" height="500px" alt="image3"></img>
+          <img src={image2} alt="image3"></img>
         </div>
-        <div className="carousel-cnt">
+        <div>
           <h4>Gigabite your Processor's home</h4>
           <b>Low cost and high power.</b>
-          <img src={image3} width="100%" height="500px" alt="image4"></img>
+          <img src={image3} alt="image4"></img>
         </div>
       </Carousel>
+      </div>
 
   );
 };

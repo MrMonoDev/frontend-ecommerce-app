@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Login.css';
+import './styles/Login.less';
 import Image from './img/valhala1000.png';
 import {DatePicker, Input, Button, Form } from 'antd';
 import {UserOutlined, MailOutlined} from '@ant-design/icons';
@@ -14,6 +14,7 @@ class Login extends React.Component {
       sfunc: "Sign up",
       nuser: "New user",
       cuser: "Cancel",
+      fpass: "forgot password?",
       user: "",
       password: "",
       buttonE:false
