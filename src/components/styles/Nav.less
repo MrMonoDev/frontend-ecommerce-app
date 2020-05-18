@@ -29,7 +29,12 @@
     a{
         position: relative;
         text-decoration: none;
-        font-size: 17px;    
+        font-size: 17px;   
+        color:black;
+        font-style: normal;
+        &:hover{
+            color:black;
+        }
         &:before{
             content:'';
             position: absolute;
@@ -40,7 +45,7 @@
             background-color:black;
             visibility: hidden;
             transform: scaleX(0);
-            transition: all 0.4s ease-in-out 0s;
+            transition: all 0.2s ease-in-out 0s;
         }
         &:hover:before {
             visibility: visible;
@@ -48,9 +53,9 @@
         }
     }
 }
-.search-container{
+.menu-ico{
     position: absolute;
-    left: 100px;
-    top: -3px;
+    right: -30px;
+    top: -7px;
 }
 

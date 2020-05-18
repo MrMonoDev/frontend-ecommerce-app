@@ -10,7 +10,7 @@ class Nav extends React.Component {
   }
   responsiveChange = (a) => {
      if (a.matches) {
-      this.setState({menuP:<div><MenuOutlined /></div>});
+      this.setState({menuP:<div className="menu-ico" ><MenuOutlined style={{fontSize:"40px"}} /></div>});
     } else { 
       this.setState({menuP: 
           <div>
@@ -36,7 +36,7 @@ class Nav extends React.Component {
     var screen = window.matchMedia("(max-width: 1024px)");
     {screen.addListener(()=>this.responsiveChange(screen))}
     return (
-      <div class="header-nav">
+      <div class="header-nav" onLoad={() => this.responsiveChange(screen)}>
         <Link to="/">
           <img class="img-nav" src={Image} alt="Logo" />
         </Link>
