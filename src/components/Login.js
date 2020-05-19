@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/Login.less';
 import Image from './img/valhala1000.png';
-import {DatePicker, Input, Button, Form } from 'antd';
+import {DatePicker, Input, Button } from 'antd';
 import {UserOutlined, MailOutlined} from '@ant-design/icons';
 
 class Login extends React.Component {
@@ -76,9 +76,7 @@ class FormL extends Login {
         {this.state.error}
         <Input className="input" name="email" placeholder="Email" prefix={<MailOutlined />} onChange={this.handleChange} required/>
         <div>
-        <Form.Item label="Birthday">
-         <DatePicker bordered={false}/><br />
-        </Form.Item> 
+         <DatePicker placeholder="Date of birth" style={{width:"100%"}}/><br />
         </div>
       </div>;
     }
