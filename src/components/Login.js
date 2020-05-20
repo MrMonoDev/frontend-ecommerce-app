@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/Login.less';
 import Image from './img/valhala1000.png';
-import {DatePicker, Input, Button } from 'antd';
+import {DatePicker, Input, Button, Alert } from 'antd';
 import {UserOutlined, MailOutlined} from '@ant-design/icons';
 
 class Login extends React.Component {
@@ -17,7 +17,11 @@ class Login extends React.Component {
       fpass: "forgot password?",
       user: "",
       password: "",
-      buttonE:false
+      passwordRepeat:"",
+      email:"",
+      birthday:"",
+      buttonE:false,
+      alertP:""
     }
   }
 
@@ -37,24 +41,36 @@ class Login extends React.Component {
   }
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
-
     if (this.state.func === this.state.sfunc && event.target.name === "password") {
       var passVal = event.target.value;
       if (passVal.length >= 7) {
-        this.setState({buttonE:false});
+        this.setState({alertP: ""});
       } else {
-        this.setState({buttonE:true});
+        this.setState({alertP: <Alert message="Type at least 7 caracters" type="error" showIcon />});
       }
     }
+    if (this.state.passwordRepeat !== ""){
+      if (this.state.passwordRepeat !== event.target.value && event.target.name === "password"){
+        this.setState({alertP: <Alert message="Passwords must match!" type="error" showIcon />});
+      }else{
+        this.setState({alertP: <Alert message="Passwords match!" type="success" showIcon />});
+      }
+    }
+    console.log(this.state.password + " " + this.state.passwordRepeat);
+    console.log(this.state.user);
+    console.log(this.state.email);
+    console.log(this.state.birthday);
   }
   comparePass = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
     var passVal = event.target.value;
     if (passVal === this.state.password && passVal.length >= 7) {
-      this.setState({buttonE:false});
+      this.setState({alertP: <Alert message="Passwords match!" type="success" showIcon />}); 
     } else {
-      this.setState({buttonE:true});
+      this.setState({alertP: <Alert message="Passwords must match!" type="error" showIcon />});
     }
   }
+  
   onSub = (event) => {
 
   }
@@ -72,11 +88,11 @@ class FormL extends Login {
   render() {
     if (this.state.func === this.state.sfunc) {
       var regist = <div>
-        <Input.Password className="input" placeholder="Repeat Password" onChange={this.comparePass} required/><br />
-        {this.state.error}
+        <Input.Password className="input" name="passwordRepeat" placeholder="Repeat Password" onChange={this.comparePass} required/><br />
+        {this.state.alertP}
         <Input className="input" name="email" placeholder="Email" prefix={<MailOutlined />} onChange={this.handleChange} required/>
         <div>
-         <DatePicker placeholder="Date of birth" style={{width:"100%"}}/><br />
+         <DatePicker placeholder="Date of birth" name="birthday" style={{width:"100%"}} /><br />
         </div>
       </div>;
     }
