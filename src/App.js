@@ -15,7 +15,7 @@ class App extends React.Component{
     
     return(
       
-      <div class="body">
+      <div className="body">
       <Router>
         <Nav />
           <Switch>

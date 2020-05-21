@@ -21,7 +21,9 @@ class Login extends React.Component {
       email:"",
       birthday:"",
       buttonE:false,
-      alertP:""
+      alertP:"",
+      actButtCrtl:false,
+      classE:"nuser-wrapper"
     }
   }
 
@@ -29,17 +31,17 @@ class Login extends React.Component {
     this.setState({ func: this.state.sfunc });
     this.setState({ access: this.state.saccess });
     this.setState({ nuser: this.state.cuser });
-    this.setState({buttonE: true});
-    document.getElementById('user-btn').className = "nuser-wrapper-second";
+    this.setState({buttonE:true});
+    this.setState({classE:"nuser-wrapper-second"});
   }
   cnlRegist = () => {
     this.setState({ func: "Login" });
     this.setState({ access: "Access" });
     this.setState({ nuser: "New user" });
-    this.setState({buttonE: false});
-    document.getElementById('user-btn').className = "nuser-wrapper";
+    this.setState({classE:"nuser-wrapper"});
   }
   handleChange = (event) => {
+    this.activeButton();
     this.setState({ [event.target.name]: event.target.value });
     if (this.state.func === this.state.sfunc && event.target.name === "password") {
       var passVal = event.target.value;
@@ -56,10 +58,7 @@ class Login extends React.Component {
         this.setState({alertP: <Alert message="Passwords match!" type="success" showIcon />});
       }
     }
-    console.log(this.state.password + " " + this.state.passwordRepeat);
-    console.log(this.state.user);
-    console.log(this.state.email);
-    console.log(this.state.birthday);
+    
   }
   comparePass = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -70,9 +69,27 @@ class Login extends React.Component {
       this.setState({alertP: <Alert message="Passwords must match!" type="error" showIcon />});
     }
   }
-  
-  onSub = (event) => {
-
+  datePickValue = (date, dateString) =>{
+    var dateS = dateString;
+    this.setState({birthday:dateS});
+    this.activeButton();
+    
+  }
+  activeButton = () => {
+    if(this.state.user !== "" && this.state.password !== "" && this.state.email !== "" && this.state.birthday !== ""){
+      this.setState({buttonE:false});
+      console.log("all data set");
+    }else{
+      this.setState({buttonE:true});
+      console.log("not all data is set");
+    }
+  }
+  onSub = () => {
+    console.log(this.state.password + " " + this.state.passwordRepeat);
+    console.log(this.state.user);
+    console.log(this.state.email);
+    console.log(this.state.birthday);
+    
   }
 
   render() {
@@ -92,7 +109,7 @@ class FormL extends Login {
         {this.state.alertP}
         <Input className="input" name="email" placeholder="Email" prefix={<MailOutlined />} onChange={this.handleChange} required/>
         <div>
-         <DatePicker placeholder="Date of birth" name="birthday" style={{width:"100%"}} /><br />
+         <DatePicker placeholder="Date of birth" name="birthday" style={{width:"100%"}} onChange={(date, dateString)=>this.datePickValue(date, dateString)} /><br />
         </div>
       </div>;
     }
@@ -101,7 +118,7 @@ class FormL extends Login {
     } else {
       method = this.cnlRegist;
     }
-    var nButtRegist = <div id="user-btn" className="nuser-wrapper">
+    var nButtRegist = <div className={this.state.classE}>
        <Button type="link" onClick={method}>{this.state.nuser}</Button>
     </div>;
     return (
@@ -114,7 +131,7 @@ class FormL extends Login {
               <Input className="input" name="user" placeholder="User" prefix={<UserOutlined />} onChange={this.handleChange} required/><br />
               <Input.Password className="input" name="password" placeholder="Password" onChange={this.handleChange} required/><br />
               {regist}
-              <Button type="primary" block disabled={this.state.buttonE}>{this.state.access}</Button>
+              <Button type="primary" block disabled={this.state.buttonE} onClick={this.onSub}>{this.state.access}</Button>
             </form>
           </div>
         {nButtRegist}
