@@ -1,24 +1,36 @@
 import React from 'react';
 import { Carousel, Card, Space } from 'antd';
-import {HeartOutlined,QuestionOutlined,EllipsisOutlined} from '@ant-design/icons';
+import { ShoppingOutlined} from '@ant-design/icons';
 import image0 from "./img/gaming1.png";
 import image1 from "./img/gaming2.jpg";
 import image2 from "./img/gaming3.jpg";
 import image3 from "./img/gaming4.jpg";
-import product from "./img/Product1.png";
+import dataMother from "./data/Motherboards.json"; 
 import './styles/Home.less';
 
 class Home extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      dataMother
+    };   
+  }
+  
   render() {
-
+    console.log(dataMother);
     return (
       <Space direction="vertical" size="large">
       <CarouselProduct />
-      <Space direction="horizontal" size="large">
-      <Product />
-      <Product />
-      <Product />
+      <h1>Motherboards</h1>
+      <Space>
+          {this.state.dataMother.map((data) =>
+          <div id={data.id}>
+          <Product title={data.title} description={data.description} src={data.path}/>
+          </div>
+          )}
       </Space>
+      <div className="pagination">
+      </div>
       </Space>
     );
   }
@@ -62,30 +74,29 @@ function CarouselProduct () {
 };
 
 
-function Product () {
+function Product (props) {
   const {Meta} = Card;
   return (
+    <div className="product-body">
     <Card
-    style={{ width: 300 }}
+    hoverable={true}
+    style={{ width: 250, height: 550 }}
     cover={
       <img
         alt="Motherboard"
-        src={product}
+        src={props.src}
       />
     }
-    actions={[
-      <HeartOutlined key="Like" />,
-      <QuestionOutlined key="Comments" />,
-      <EllipsisOutlined key="More" />,
-    ]}
   >
     <Meta
-      title="Z490M GAMING X (rev. 1.0)"
-      description="Direct 11+1 Phases Power Design, 2-Way CrossFire™ Multi-Graphics, 
-      Intel® GbE with cFosSpeed, USB 3.2 Gen2 Type-A ,USB 3.2 Gen2 Type-C™, M.2 with 
-      Thermal Guard, Smart Fan 5, Dual Armor with Ultra Durable™ Design, RGB FUSION 2.0"
+      title= {props.title}
+      description= {props.description}
     />
   </Card>
+  <div className="shop-ico">
+  <ShoppingOutlined style={{fontSize:15 }} />
+  </div>
+  </div>
   );
 };
 
