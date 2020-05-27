@@ -5,6 +5,10 @@
         "description": ["Direct 11+1 Phases Power Design, 2-Way CrossFire™ Multi-Graphics,",
          "Intel® GbE with cFosSpeed, USB 3.2 Gen2 Type-A ,USB 3.2 Gen2 Type-C™, M.2 with",
          "Thermal Guard, Smart Fan 5, Dual Armor with Ultra Durable™ Design, RGB FUSION 2.0"],
+         "price":"150",
+         "oldprice":"250",
+         "rate":"2",
+         "status":"On request",
          "path": "https://static.gigabyte.com/Product/2/7219/2020043014292936e3a8c21e009a017fe8e955236fd249fc_src.png"
     },
     {
@@ -13,6 +17,10 @@
         "description": ["Intel® Z490 AORUS Motherboard with 16 Phases Digital VRM, Fins-Array II Heatsink,", 
         "Direct-Touch Heatpipe II ,NanoCarbon Baseplate, Intel® Thunderbolt 3, ESSential USB DAC,", 
         "Intel® WiFi 6 802.11ax, AQUANTIA® 10GbE LAN, Intel® 2.5GbE LAN, RGB FUSION 2.0"],
+        "price":"179",
+        "oldprice":"289",
+        "rate":"4",
+        "status":"In stock",
         "path": "https://static.gigabyte.com/Product/2/7250/2020043017260151dd97d8399e4e19774fe67e304e62cbef_src.png"
     },
     {
@@ -21,6 +29,10 @@
         "description": ["AMD X570 GAMING Motherboard with 10+2 Phases Digital VRM, Advanced", 
         "Thermal Design with Enlarge Heatsink, Dual PCIe 4.0 M.2, M.2 Thermal Guard, GIGABYTE", 
         "Gaming GbE LAN with Bandwidth Management, HDMI 2.0, RGB Fusion 2.0"],
+        "price":"159.9",
+        "oldprice":"259.9",
+        "rate":"3",
+        "status":"On request",
         "path": "https://static.gigabyte.com/Product/2/6895/20190702153642246d75ea4563aa946f3b1cf53e79a0559c_src.png"
     },
     {
@@ -29,6 +41,10 @@
         "description": ["Intel® Z490 Ultra Durable Motherboard with Direct 11+1 Phases Digital VRM,", 
         "Extended MOS Heatsink, Dual NVMe PCIe 3.0 x4 M.2, GbE Gaming LAN, Integrated I/O Shield,",
         "Q-Flash PLUS, RGB FUSION 2.0"],
+        "price":"150",
+        "oldprice":"250",
+        "rate":"5",
+        "status":"In stock",
         "path": "https://static.gigabyte.com/Product/2/7260/2020043010514619e7ab741564789040b012643ccd3bd093_src.png"
     },
     {
@@ -38,6 +54,10 @@
         "Direct Touch Heatpipe II /w Micro-Block Heatsink, Intel® 2.5GbE with cFosSpeed, 2-Way SLI™ /", 
         "CrossFire™ Multi-Graphics, Dual M.2 with Thermal Guards, Front & Rear USB 3.2 Gen2 Type-C,", 
         "RGB FUSION 2.0"],
+        "price":"99",
+        "oldprice":"129",
+        "rate":"3",
+        "status":"On request",
         "path": "https://static.gigabyte.com/Product/2/7269/202005081803394251d044f11780b114bd6645001abaa42a_src.png"
     }
 ]
