@@ -1,6 +1,5 @@
 @import './Main.less';
 
-@margin: 10px;
 .carousel-container{
     #center.images();
     width: 100%;
@@ -85,49 +84,11 @@
             font-size: 25px;
         }
     }
-    .mySlides {
-        #left-animation();
-        } 
-    .pagination{
-        position: relative;
-       
+    .motherboards{
+        .product();
     }
-    .shop-ico{
-        position: absolute;
-        top: 2px;
-        left: @margin;
-        transition: transform .2s;
-        &:hover{
-            color: #colors[gBlue7];
-            transform: scale(1.5);
-        }
-    }
-    .love-ico{
-        .shop-ico();
-        left:@margin * 3;
-    }
-    .star-rate{
-        position: absolute;
-        bottom: 2px;
-        left:@margin * 22;
-    }
-    .price{
-       .oldprice();
-       left:@margin * 5; 
-    }
-    .oldprice{
-        position: absolute;
-        top: 250px;
-        left:@margin * 15;
-    }
-    .first-status{
-        position: absolute;
-        top: 2px;
-        left:@margin * 17.2;
-    }
-    .second-status{
-        .first-status();
-        left: @margin * 19;
+    .processors{
+        .product();
     }
     .next-btn{
         position: absolute;

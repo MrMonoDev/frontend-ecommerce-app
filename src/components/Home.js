@@ -11,6 +11,7 @@ import image1 from "./img/gaming2.jpg";
 import image2 from "./img/gaming3.jpg";
 import image3 from "./img/gaming4.jpg";
 import dataMother from "./data/Motherboards.json";
+import dataProcessor from "./data/Processors.json";
 import "./styles/Home.less";
 
 class Home extends React.Component {
@@ -18,13 +19,14 @@ class Home extends React.Component {
     super(props);
     this.state = {
       dataMother,
+      dataProcessor,
       startSlice: 0,
       lastSlice: 4,
     };
   }
 
-  showSlides = (n) => {
-    var slides = document.getElementsByClassName("mySlides");
+  showSlides = (n, c) => {
+    var slides = document.getElementsByClassName(c);
     this.setState({ startSlice: 0 + n });
     this.setState({ lastSlice: 4 + n });
 
@@ -58,9 +60,7 @@ class Home extends React.Component {
         <h1>Motherboards</h1>
         <table>
           <tr>
-            {this.state.dataMother
-              .slice(this.state.startSlice, this.state.lastSlice)
-              .map((data) => (
+            {this.state.dataMother.slice(this.state.startSlice, this.state.lastSlice).map((data) => (
                 <td>
                   <Product
                     title={data.title}
@@ -72,22 +72,42 @@ class Home extends React.Component {
                     oldprice={data.oldprice}
                     color={this.colorChange(data.status)}
                     statusPosition={this.classChange(data.status)}
-
-                    
-                  />
+                    classProduct="motherboards"
+                    />
                 </td>
               ))}
             <td>
               <div className="next-btn">
                 <RightOutlined
                   style={{ fontSize: 50 }}
-                  onClick={() => this.showSlides(1)}
+                  onClick={() => this.showSlides(1, "motherboards")}
                 />
               </div>
             </td>
             {/* <div className="next-btn">
           <LeftOutlined style={{fontSize:50}} onClick={() => this.plusSlides(-1)} />
           </div> */}
+          </tr>
+        </table>
+        <h1>Processors</h1>
+        <table>
+        <tr>
+            {this.state.dataProcessor.slice(0, 4).map((data) => (
+                <td>
+                  <Product
+                    title={data.title}
+                    description={data.description}
+                    src={data.path}
+                    rate={data.rate}
+                    price={data.price}
+                    status={data.status}
+                    oldprice={data.oldprice}
+                    color={this.colorChange(data.status)}
+                    statusPosition={this.classChange(data.status)}
+                    classProduct="processors"
+                    />
+                </td>
+              ))}
           </tr>
         </table>
       </Space>
@@ -135,11 +155,11 @@ function Product(props) {
   const {Text} = Typography;
   const { Meta } = Card;
   return (
-    <div className="mySlides">
+    <div className={props.classProduct}>
       <Card
         hoverable={true}
         style={{ width: 250, height: 550 }}
-        cover={<img alt="Motherboard" src={props.src} />}
+        cover={<img alt="Products" src={props.src} width="200px" height="250px" />}
       >
         <Meta title={props.title} description={props.description} />
       </Card>
