@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Card, Space, Rate, Typography, Tag } from "antd";
+import { Carousel, Card, Space, Rate, Typography, Tag, Tabs } from "antd";
 import {
   ShoppingOutlined,
   HeartFilled,
@@ -21,22 +21,22 @@ class Home extends React.Component {
       dataMother,
       dataProcessor,
       startSlice: 0,
-      lastSlice: 4,
+      lastSlice: 4
     };
   }
 
-  showSlides = (n, c) => {
-    var slides = document.getElementsByClassName(c);
-    this.setState({ startSlice: 0 + n });
-    this.setState({ lastSlice: 4 + n });
-
-    if (this.state.lastSlice > slides.length) {
+  showSlides = (n, classP) => {
+    var slides = document.getElementsByClassName(classP);
+    this.setState({startSlice: this.state.startSlice + n});
+    this.setState({lastSlice: this.state.lastSlice + n });
+    
+   if (this.state.lastSlice > slides.length) {
       this.setState({ startSlice: 0 });
       this.setState({ lastSlice: 4 });
     }
-    if (this.state.startSlice < 0) {
-      this.setState({ startSlice: slides.length - 4 });
-      this.setState({ lastSlice: slides.length });
+    if (this.state.startSlice + n < 0) {
+      this.setState({ startSlice: 1 });
+      this.setState({ lastSlice: 5 });
     }
   };
   colorChange = (color) => {
@@ -53,14 +53,18 @@ class Home extends React.Component {
       return "second-status";
     }
   };
+  
   render() {
+    const {TabPane} = Tabs;
     return (
       <Space direction="vertical" size="large">
         <CarouselProduct />
-        <h1>Motherboards</h1>
-        <table>
+        <Tabs tabPosition="right">
+          <TabPane tab="Motherboards" key="1">
+          <h1>Motherboards</h1>
+          <table>
           <tr>
-            {this.state.dataMother.slice(this.state.startSlice, this.state.lastSlice).map((data) => (
+            {this.state.dataMother.slice(this.state.startSlice, this.state.lastSlice).map((data) => 
                 <td>
                   <Product
                     title={data.title}
@@ -75,24 +79,26 @@ class Home extends React.Component {
                     classProduct="motherboards"
                     />
                 </td>
-              ))}
+              )}
             <td>
               <div className="next-btn">
                 <RightOutlined
                   style={{ fontSize: 50 }}
-                  onClick={() => this.showSlides(1, "motherboards")}
-                />
+                  onClick={() => this.showSlides(1, "motherboards")} />
               </div>
             </td>
-            {/* <div className="next-btn">
-          <LeftOutlined style={{fontSize:50}} onClick={() => this.plusSlides(-1)} />
-          </div> */}
+              <div className="forward-btn">
+               <LeftOutlined style={{fontSize:50}} 
+                onClick={() => this.showSlides(-1, "motherboards")} />
+              </div> 
           </tr>
         </table>
-        <h1>Processors</h1>
-        <table>
+          </TabPane>
+          <TabPane tab="Processors" key="2">
+          <h1>Processors</h1>
+          <table>
         <tr>
-            {this.state.dataProcessor.slice(0, 4).map((data) => (
+            {this.state.dataProcessor.slice(this.state.startSlice, this.state.lastSlice).map((data) => (
                 <td>
                   <Product
                     title={data.title}
@@ -108,8 +114,25 @@ class Home extends React.Component {
                     />
                 </td>
               ))}
+              <td>
+              <div className="next-btn">
+                <RightOutlined
+                  style={{ fontSize: 50 }}
+                  onClick={() => this.showSlides(1, "processors")}
+                />
+              </div>
+            </td>
+            <div className="forward-btn">
+               <LeftOutlined style={{fontSize:50}} 
+                onClick={() => this.showSlides(-1, "motherboards")} />
+              </div> 
           </tr>
         </table>
+          </TabPane>
+          <TabPane tab="RAM" key="3">
+            Content of Tab 3
+          </TabPane>
+        </Tabs>
       </Space>
     );
   }
@@ -158,7 +181,9 @@ function Product(props) {
     <div className={props.classProduct}>
       <Card
         hoverable={true}
-        style={{ width: 250, height: 550 }}
+        style={{ width: 250, height: 550
+        
+         }}
         cover={<img alt="Products" src={props.src} width="200px" height="250px" />}
       >
         <Meta title={props.title} description={props.description} />

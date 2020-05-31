@@ -3,13 +3,12 @@
 .img-nav{
     position: relative;
     float: left;
-    width: 50px;
-    height: 50px;
-    left: 20px;
+    width: 60px;
+    height: 60px;
+    left: 40px;
 }
 .login-nav{
     float: right;
-    position: inherit;
 }
 .contact-nav{
     .login-nav();
@@ -19,9 +18,10 @@
 }
 .header-nav{
     position: relative;
-    margin: 0px 0px 0px 0px;
-    height: 50px;
-    background-color: #colors[gBlue3];
+    margin: -12px 0px -17px 0px;
+    height: 90px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
     div{
         margin-right: 50px;
         margin-top: 12px;
@@ -29,11 +29,12 @@
     a{
         position: relative;
         text-decoration: none;
+        top: 15px;
         font-size: 17px;   
-        color:black;
+        color: #colors[gBlue1];
         font-style: normal;
         &:hover{
-            color:black;
+            color: #colors[gBlue1];
         }
         &:before{
             content:'';
@@ -42,7 +43,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color:black;
+            background-color: #colors[gBlue1];
             visibility: hidden;
             transform: scaleX(0);
             transition: all 0.2s ease-in-out 0s;

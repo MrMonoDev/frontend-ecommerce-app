@@ -33,6 +33,36 @@
     gBlue10:#030852;//white text
 }
 #left-animation{
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes slideInLeft {
+        0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+        }
+        @keyframes slideInLeft {
+        0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }    
+}
+#right-animation{
     -webkit-animation-name: slideInRight;
         animation-name: slideInRight;
         -webkit-animation-duration: 1s;
@@ -95,43 +125,5 @@
         }
 }
 
-.product{
-    #left-animation();
-}
-.shop-ico{
-    position: absolute;
-    top: 2px;
-    left: @margin;
-    transition: transform .2s;
-    &:hover{
-        color: #colors[gBlue7];
-        transform: scale(1.5);
-    }
-}
-.love-ico{
-    .shop-ico();
-    left:@margin * 3;
-}
-.star-rate{
-    position: absolute;
-    bottom: 2px;
-    left:@margin * 22;
-}
-.price{
-   .oldprice();
-   left:@margin * 5; 
-}
-.oldprice{
-    position: absolute;
-    top: 250px;
-    left:@margin * 15;
-}
-.first-status{
-    position: absolute;
-    top: 2px;
-    left:@margin * 17.2;
-}
-.second-status{
-    .first-status();
-    left: @margin * 19;
-}
+
+
