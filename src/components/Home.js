@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import { Carousel, Card, Space, Rate, Typography, Tag, Tabs } from "antd";
 import {
   ShoppingOutlined,
+  ShoppingFilled,
   HeartFilled,
   RightOutlined,
   LeftOutlined,
+  HeartOutlined
 } from "@ant-design/icons";
 import image0 from "./img/gaming1.png";
 import image1 from "./img/gaming2.jpg";
@@ -52,8 +54,7 @@ class Home extends React.Component {
     }else{
       return "second-status";
     }
-  };
-  
+  };  
   render() {
     const {TabPane} = Tabs;
     return (
@@ -67,6 +68,7 @@ class Home extends React.Component {
             {this.state.dataMother.slice(this.state.startSlice, this.state.lastSlice).map((data) => 
                 <td>
                   <Product
+                    idLove={data.id}
                     title={data.title}
                     description={data.description}
                     src={data.path}
@@ -111,7 +113,9 @@ class Home extends React.Component {
                     color={this.colorChange(data.status)}
                     statusPosition={this.classChange(data.status)}
                     classProduct="processors"
-                    />
+                    >
+                       <HeartOutlined style={{fontSize:15}} />
+                    </Product>
                 </td>
               ))}
               <td>
@@ -174,9 +178,20 @@ function CarouselProduct() {
   );
 }
 
+function changeAction (value) {
+  switch (value){
+    case 0:
+      return value + 1
+    case 1:
+      return value - 1
+    default:
+  }
+}
 function Product(props) {
   const {Text} = Typography;
   const { Meta } = Card;
+  var [shopIco, setshopIco] = useState(0);
+  var [loveIco, setloveIco] = useState(0);
   return (
     <div className={props.classProduct}>
       <Card
@@ -188,12 +203,14 @@ function Product(props) {
       >
         <Meta title={props.title} description={props.description} />
       </Card>
-      <div className="shop-ico">
-        <ShoppingOutlined style={{ fontSize: 15 }} />
+      <div className="shop-ico" onClick={()=>setshopIco(shopIco = changeAction(shopIco))}>
+        {(shopIco === 0) ? <ShoppingOutlined style={{ fontSize: 15 }} /> : 
+        <ShoppingFilled style={{ fontSize: 15 }} />}
       </div>
-      <div className="love-ico">
-        <HeartFilled style={{ fontSize: 15 }} />
-      </div>
+        <div className="love-ico" onClick={()=>setloveIco(loveIco = changeAction(loveIco))}>
+          {(loveIco === 0) ? <HeartOutlined style={{fontSize:15}} /> : 
+          <HeartFilled style={{fontSize:15}} /> }
+        </div>
       <div className={props.statusPosition}>
         <Tag color={props.color}>{props.status}</Tag>
       </div>

@@ -6,56 +6,25 @@
     width: 60px;
     height: 60px;
     left: 40px;
+    top: 15px;
 }
-.login-nav{
+.user-nav{
+    position: relative;
     float: right;
+    right: 30px;
+    top: 30px
 }
-.contact-nav{
-    .login-nav();
-}
-.about-nav{
-    .login-nav();
+.shopping-nav{
+    .user-nav();
+    right: 90px;
 }
 .header-nav{
     position: relative;
-    margin: -12px 0px -17px 0px;
+    margin: 0px 0px -17px 0px;
     height: 90px;
     background: #bnw-colors[gray9];
-    div{
-        margin-right: 50px;
-        margin-top: 12px;
-    }
-    a{
-        position: relative;
-        text-decoration: none;
-        top: 15px;
-        font-size: 17px;   
+    a{  
         color: #bnw-colors[gray5];
-        font-style: normal;
-        &:hover{
-            color: #bnw-colors[gray5];
-        }
-        &:before{
-            content:'';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #bnw-colors[gray5];
-            visibility: hidden;
-            transform: scaleX(0);
-            transition: all 0.2s ease-in-out 0s;
-        }
-        &:hover:before {
-            visibility: visible;
-            transform: scaleX(1);
-        }
     }
-}
-.menu-ico{
-    position: absolute;
-    right: -30px;
-    top: -3px;
 }
 
