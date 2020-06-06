@@ -1,13 +1,6 @@
 import React, {useState} from "react";
 import { Carousel, Card, Space, Rate, Typography, Tag, Tabs } from "antd";
-import {
-  ShoppingOutlined,
-  ShoppingFilled,
-  HeartFilled,
-  RightOutlined,
-  LeftOutlined,
-  HeartOutlined
-} from "@ant-design/icons";
+import { ShoppingOutlined, ShoppingFilled, HeartFilled, HeartOutlined } from "@ant-design/icons";
 import image0 from "./img/gaming1.png";
 import image1 from "./img/gaming2.jpg";
 import image2 from "./img/gaming3.jpg";
@@ -23,24 +16,10 @@ class Home extends React.Component {
       dataMother,
       dataProcessor,
       startSlice: 0,
-      lastSlice: 4
+      lastSlice: 4,
+      cart:[]
     };
   }
-
-  showSlides = (n, classP) => {
-    var slides = document.getElementsByClassName(classP);
-    this.setState({startSlice: this.state.startSlice + n});
-    this.setState({lastSlice: this.state.lastSlice + n });
-    
-   if (this.state.lastSlice > slides.length) {
-      this.setState({ startSlice: 0 });
-      this.setState({ lastSlice: 4 });
-    }
-    if (this.state.startSlice + n < 0) {
-      this.setState({ startSlice: 1 });
-      this.setState({ lastSlice: 5 });
-    }
-  };
   colorChange = (color) => {
     if (color === "On request"){
       return "gold";
@@ -54,7 +33,7 @@ class Home extends React.Component {
     }else{
       return "second-status";
     }
-  };  
+  };
   render() {
     const {TabPane} = Tabs;
     return (
@@ -63,12 +42,9 @@ class Home extends React.Component {
         <Tabs tabPosition="right">
           <TabPane tab="Motherboards" key="1">
           <h1>Motherboards</h1>
-          <table>
-          <tr>
-            {this.state.dataMother.slice(this.state.startSlice, this.state.lastSlice).map((data) => 
-                <td>
+            {this.state.dataMother.map((data) => 
                   <Product
-                    idLove={data.id}
+                    productId={data.id}
                     title={data.title}
                     description={data.description}
                     src={data.path}
@@ -80,29 +56,13 @@ class Home extends React.Component {
                     statusPosition={this.classChange(data.status)}
                     classProduct="motherboards"
                     />
-                </td>
               )}
-            <td>
-              <div className="next-btn">
-                <RightOutlined
-                  style={{ fontSize: 50 }}
-                  onClick={() => this.showSlides(1, "motherboards")} />
-              </div>
-            </td>
-              <div className="forward-btn">
-               <LeftOutlined style={{fontSize:50}} 
-                onClick={() => this.showSlides(-1, "motherboards")} />
-              </div> 
-          </tr>
-        </table>
           </TabPane>
           <TabPane tab="Processors" key="2">
           <h1>Processors</h1>
-          <table>
-        <tr>
-            {this.state.dataProcessor.slice(this.state.startSlice, this.state.lastSlice).map((data) => (
-                <td>
+            {this.state.dataProcessor.map((data) => (
                   <Product
+                    productId={data.id}
                     title={data.title}
                     description={data.description}
                     src={data.path}
@@ -113,25 +73,8 @@ class Home extends React.Component {
                     color={this.colorChange(data.status)}
                     statusPosition={this.classChange(data.status)}
                     classProduct="processors"
-                    >
-                       <HeartOutlined style={{fontSize:15}} />
-                    </Product>
-                </td>
+                    />
               ))}
-              <td>
-              <div className="next-btn">
-                <RightOutlined
-                  style={{ fontSize: 50 }}
-                  onClick={() => this.showSlides(1, "processors")}
-                />
-              </div>
-            </td>
-            <div className="forward-btn">
-               <LeftOutlined style={{fontSize:50}} 
-                onClick={() => this.showSlides(-1, "motherboards")} />
-              </div> 
-          </tr>
-        </table>
           </TabPane>
           <TabPane tab="RAM" key="3">
             Content of Tab 3
@@ -151,7 +94,6 @@ function CarouselProduct() {
         speed={3000}
         autoplay
         dotPosition="left"
-        slidesToShow={3}
       >
         <div>
           <h4>New cooler Corsair</h4>
@@ -187,18 +129,20 @@ function changeAction (value) {
     default:
   }
 }
+
+
 function Product(props) {
   const {Text} = Typography;
   const { Meta } = Card;
   var [shopIco, setshopIco] = useState(0);
   var [loveIco, setloveIco] = useState(0);
+  
+  
   return (
-    <div className={props.classProduct}>
+    <div id={props.productId} className={props.classProduct}>
       <Card
         hoverable={true}
-        style={{ width: 250, height: 550
-        
-         }}
+        style={{ width: 250, height: 550}}
         cover={<img alt="Products" src={props.src} width="200px" height="250px" />}
       >
         <Meta title={props.title} description={props.description} />
@@ -226,5 +170,4 @@ function Product(props) {
     </div>
   );
 }
-
 export default Home;

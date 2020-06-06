@@ -1,5 +1,6 @@
 [
-    {
+    {   
+        "id": "CPU1",
         "title":"AMD Ryzen™ 5 3600X",
         "description":["Graphics Model",
         "Discrete Graphics Card Required",
@@ -16,7 +17,8 @@
         "status":"In stock",
         "path": "https://www.amd.com/system/files/2019-06/238593-ryzen-5-pib-left-facing-1260x709.png"
     },
-    {
+    {   
+        "id": "CPU2",
         "title":"AMD Ryzen™ 7 3700X",
         "description":["Graphics Model",
         "Discrete Graphics Card Required",
@@ -33,7 +35,8 @@
         "status":"In stock",
         "path": "https://www.amd.com/system/files/2019-06/238593-ryzen-7-pib-left-facing-1260x709.png"
     },
-    {
+    {   
+        "id": "CPU3",
         "title":"AMD Ryzen™ 7 2700X Processor",
         "description":["Graphics Model Discrete Graphics Card Required",
         "# of CPU Cores 8",
@@ -49,7 +52,8 @@
         "status":"On request",
         "path": "https://www.amd.com/system/files/2019-06/238593-ryzen-7-pib-left-facing-1260x709.png"
     },
-    {
+    {   
+        "id": "CPU4",
         "title":"AMD Ryzen™ 9 3900X",
         "description":["Graphics Model Discrete Graphics Card Required",
         "# of CPU Cores 12",
@@ -65,7 +69,7 @@
         "status":"On request",
         "path": "https://www.amd.com/system/files/2019-11/238593-ryzen-9-pib-left-facing-1260x709_0.png"
     },
-    {
+    {   "id": "CPU5",
         "title":"AMD Ryzen™ Threadripper™ 3960X Processor",
         "description":["Graphics Model Discrete Graphics Card Required",
         "# of CPU Cores 24",
