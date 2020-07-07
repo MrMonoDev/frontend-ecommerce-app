@@ -1,0 +1,45 @@
+@import './Main.less';
+
+ @margLeft:10px;
+
+.shoppings{
+    margin-top: 50px;
+}
+.shopPrice{
+    .shopOldPrice();
+    top: @margLeft;
+    left: @margLeft;
+}
+.shopOldPrice{
+    position: relative;
+    left: @margLeft + 10px;
+}
+.shopBuy{
+    position: relative;
+    width: 140px;
+    top: 80px;
+    left: 87%;
+}
+.shopTerms{
+    position: relative;
+    left: 5px;
+}
+.shopDeleteIco{
+    position: relative;
+    left: 10px;
+    transition: transform .2s;
+        &:hover{
+        color: #colors[gBlue7];
+        transform: scale(1.5);
+        }
+}
+.shopTotal{
+    position: relative;
+    top:-30px;
+    left: 85%;
+}
+.shopAmount{
+    position: relative;
+    top: -70px;
+    left: 90%;
+}

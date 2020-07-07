@@ -1,88 +1,86 @@
-import React, {useState} from "react";
+import React, { useState, useContext } from "react";
 import { Carousel, Card, Space, Rate, Typography, Tag, Tabs } from "antd";
-import { ShoppingOutlined, ShoppingFilled, HeartFilled, HeartOutlined } from "@ant-design/icons";
+import {
+  ShoppingOutlined,
+  ShoppingFilled,
+  HeartFilled,
+  HeartOutlined,
+} from "@ant-design/icons";
 import image0 from "./img/gaming1.png";
 import image1 from "./img/gaming2.jpg";
 import image2 from "./img/gaming3.jpg";
 import image3 from "./img/gaming4.jpg";
+import "./styles/Home.less";
 import dataMother from "./data/Motherboards.json";
 import dataProcessor from "./data/Processors.json";
-import "./styles/Home.less";
+import { ProductContext } from "./ContextProducts";
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dataMother,
-      dataProcessor,
-      startSlice: 0,
-      lastSlice: 4,
-      cart:[]
-    };
-  }
-  colorChange = (color) => {
-    if (color === "On request"){
+function Home() {
+
+  const colorChange = (color) => {
+    if (color === "On request") {
       return "gold";
-    }else{
+    } else {
       return "green";
     }
   };
-  classChange = (status) =>{
-    if(status === "On request"){
+  const classChange = (status) => {
+    if (status === "On request") {
       return "first-status";
-    }else{
+    } else {
       return "second-status";
     }
   };
-  render() {
-    const {TabPane} = Tabs;
-    return (
-      <Space direction="vertical" size="large">
-        <CarouselProduct />
-        <Tabs tabPosition="right">
-          <TabPane tab="Motherboards" key="1">
+
+  const { TabPane } = Tabs;
+  
+
+  return (
+    <Space direction="vertical" size="large">
+      <CarouselProduct />
+      <Tabs tabPosition="right">
+        <TabPane tab="Motherboards" key="1">
           <h1>Motherboards</h1>
-            {this.state.dataMother.map((data) => 
-                  <Product
-                    productId={data.id}
-                    title={data.title}
-                    description={data.description}
-                    src={data.path}
-                    rate={data.rate}
-                    price={data.price}
-                    status={data.status}
-                    oldprice={data.oldprice}
-                    color={this.colorChange(data.status)}
-                    statusPosition={this.classChange(data.status)}
-                    classProduct="motherboards"
-                    />
-              )}
-          </TabPane>
-          <TabPane tab="Processors" key="2">
+          {dataMother.map((data) => (
+            <Product
+              productId={data.id}
+              title={data.title}
+              description={data.description}
+              src={data.path}
+              rate={data.rate}
+              price={data.price}
+              status={data.status}
+              oldprice={data.oldprice}
+              color={colorChange(data.status)}
+              statusPosition={classChange(data.status)}
+              classProduct="motherboards"
+            />
+          ))}
+        </TabPane>
+        <TabPane tab="Processors" key="2">
           <h1>Processors</h1>
-            {this.state.dataProcessor.map((data) => (
-                  <Product
-                    productId={data.id}
-                    title={data.title}
-                    description={data.description}
-                    src={data.path}
-                    rate={data.rate}
-                    price={data.price}
-                    status={data.status}
-                    oldprice={data.oldprice}
-                    color={this.colorChange(data.status)}
-                    statusPosition={this.classChange(data.status)}
-                    classProduct="processors"
-                    />
-              ))}
-          </TabPane>
-          <TabPane tab="RAM" key="3">
-            Content of Tab 3
-          </TabPane>
-        </Tabs>
-      </Space>
-    );
-  }
+          {dataProcessor.map((data) => (
+            <Product
+              productId={data.id}
+              title={data.title}
+              description={data.description}
+              src={data.path}
+              rate={data.rate}
+              price={data.price}
+              status={data.status}
+              oldprice={data.oldprice}
+              color={colorChange(data.status)}
+              statusPosition={classChange(data.status)}
+              classProduct="processors"
+            />
+          ))}
+        </TabPane>
+        <TabPane tab="RAM" key="3">
+          Content of Tab 3
+        </TabPane>
+      </Tabs>
+    </Space>
+  );
 }
 
 function CarouselProduct() {
@@ -120,41 +118,78 @@ function CarouselProduct() {
   );
 }
 
-function changeAction (value) {
-  switch (value){
+function changeAction(value) {
+  switch (value) {
     case 0:
-      return value + 1
+      return value + 1;
     case 1:
-      return value - 1
+      return value - 1;
     default:
   }
 }
 
 
 function Product(props) {
-  const {Text} = Typography;
+  const [cart, setcart] = useContext(ProductContext);
+  const { Text } = Typography;
   const { Meta } = Card;
-  var [shopIco, setshopIco] = useState(0);
+  var [shopIco, setshopIco] = useState(()=>{
+    for(let item of cart){
+      if (item.title === props.title){
+    return 1;
+      }
+    }
+    return 0;
+  });
   var [loveIco, setloveIco] = useState(0);
-  
   
   return (
     <div id={props.productId} className={props.classProduct}>
       <Card
         hoverable={true}
-        style={{ width: 250, height: 550}}
-        cover={<img alt="Products" src={props.src} width="200px" height="250px" />}
+        style={{ width: 250, height: 550 }}
+        cover={
+          <img alt="Products" src={props.src} width="200px" height="250px" />
+        }
       >
         <Meta title={props.title} description={props.description} />
       </Card>
-      <div className="shop-ico" onClick={()=>setshopIco(shopIco = changeAction(shopIco))}>
-        {(shopIco === 0) ? <ShoppingOutlined style={{ fontSize: 15 }} /> : 
-        <ShoppingFilled style={{ fontSize: 15 }} />}
+      <div
+        className="shop-ico" 
+        onClick={() => setshopIco((shopIco = changeAction(shopIco)))}
+      >
+        {shopIco === 0 ? (
+          <ShoppingOutlined style={{ fontSize: 15 }} onClick={() => {
+            const id = props.productId;
+            for(let product of dataMother){
+              if (id === product.id){
+                setcart(cart => [...cart, product]);
+              }
+            }
+          }} />
+        ) : (
+          <ShoppingFilled style={{ fontSize: 15 }} onClick={() => {
+            const id = props.productId;
+            const productList = new Set(cart);
+            for(let product of productList){
+               if (id === product.id){
+                productList.delete(product);
+              }
+            }  
+            setcart(Array.from(productList));        
+          }} />
+        )}
       </div>
-        <div className="love-ico" onClick={()=>setloveIco(loveIco = changeAction(loveIco))}>
-          {(loveIco === 0) ? <HeartOutlined style={{fontSize:15}} /> : 
-          <HeartFilled style={{fontSize:15}} /> }
-        </div>
+      <div
+        className="love-ico"
+        onClick={() => setloveIco((loveIco = changeAction(loveIco)))}
+      >
+        {loveIco === 0 ? (
+          <HeartOutlined style={{ fontSize: 15 }} />
+        ) : (
+          <HeartFilled style={{ fontSize: 15 }} />
+        )}
+      </div>
       <div className={props.statusPosition}>
         <Tag color={props.color}>{props.status}</Tag>
       </div>
