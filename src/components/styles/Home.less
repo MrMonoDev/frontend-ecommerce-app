@@ -5,25 +5,74 @@
     width: 100%;
     height: 200px;
     img{
-        width: 375px;
-        height: 200px;
+        width: 480px;
+        height: 280px;
     }
     h4{
         position: absolute;
-        top: 150px;
-        left: 150px;
+        top: 210px;
+        left: 180px;
         z-index: 1;
         color: blanchedalmond;
-        font-size: 15px;
+        font-size: 20px;
     }
     b{
         position: absolute;
-        top: 168px;
-        left: 160px;
+        top: 240px;
+        left: 180px;
         z-index: 1;
         color: blanchedalmond;
-        font-size: 8px;
+        font-size: 12px;
     }
+}
+.motherboards{
+        position: relative;
+        margin-left: 1px;
+        margin-bottom: 2px;
+        display: inline-block;
+        white-space: pre-wrap;
+        vertical-align: top;
+        #left-animation();
+}
+.processors{
+    .motherboards();
+}
+.shop-ico{
+    position: absolute;
+    top: 2px;
+    left: @margin;
+    transition: transform .2s;
+    &:hover{
+        color: #colors[gBlue7];
+        transform: scale(1.5);
+    }
+}
+.love-ico{
+    .shop-ico();
+    left:@margin * 3;
+}
+.star-rate{
+    position: absolute;
+    bottom: 2px;
+    left:@margin * 10;
+}
+.price{
+   .oldprice();
+   left:@margin * 15; 
+}
+.oldprice{
+    position: absolute;
+    top: 250px;
+    left:@margin * 5;
+}
+.first-status{
+    position: absolute;
+    top: 2px;
+    left:@margin * 17.2;
+}
+.second-status{
+    .first-status();
+    left: @margin * 19;
 }
 //tablet
 @media only screen and (min-width: 600px){
@@ -53,6 +102,18 @@
         }
     }
 }
+.motherboards{
+    position: relative;
+    margin-left: 1px;
+    margin-bottom: 2px;
+    display: inline-block;
+    white-space: pre-wrap;
+    vertical-align: top;
+    #left-animation();
+}
+.processors{
+.motherboards();
+}
 //laptop
 @media only screen and (min-width: 1024px) {
     .carousel-container{
@@ -67,7 +128,7 @@
         h4{
             position: absolute;
             top: 350px;
-            left: 600px;
+            left: 500px;
             z-index: 1;
             color: blanchedalmond;
             font-size: 50px;
@@ -75,7 +136,7 @@
         b{
             position: absolute;
             top: 410px;
-            left: 620px;
+            left: 520px;
             z-index: 1;
             color: blanchedalmond;
             font-size: 25px;
@@ -86,48 +147,12 @@
         margin-left: 5px;
         margin-bottom: 20px;
         display: inline-block;
-        #left-animation();
         vertical-align: top;
+        #left-animation();
+        
     }
     .processors{
         .motherboards();
-    }
-    .shop-ico{
-        position: absolute;
-        top: 2px;
-        left: @margin;
-        transition: transform .2s;
-        &:hover{
-            color: #colors[gBlue7];
-            transform: scale(1.5);
-        }
-    }
-    .love-ico{
-        .shop-ico();
-        left:@margin * 3;
-    }
-    .star-rate{
-        position: absolute;
-        bottom: 2px;
-        left:@margin * 22;
-    }
-    .price{
-       .oldprice();
-       left:@margin * 15; 
-    }
-    .oldprice{
-        position: absolute;
-        top: 250px;
-        left:@margin * 5;
-    }
-    .first-status{
-        position: absolute;
-        top: 2px;
-        left:@margin * 17.2;
-    }
-    .second-status{
-        .first-status();
-        left: @margin * 19;
     }
 }
 

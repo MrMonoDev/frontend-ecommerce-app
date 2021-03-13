@@ -14,16 +14,6 @@
     position: relative;
     left: @margLeft + 10px;
 }
-.shopBuy{
-    position: relative;
-    width: 140px;
-    top: 80px;
-    left: 87%;
-}
-.shopTerms{
-    position: relative;
-    left: 5px;
-}
 .shopDeleteIco{
     position: relative;
     left: 10px;
@@ -33,13 +23,38 @@
         transform: scale(1.5);
         }
 }
-.shopTotal{
-    position: relative;
-    top:-30px;
-    left: 85%;
+.buttonTerms{
+    float: right;
 }
-.shopAmount{
+.termsNconditions{
+    overflow-y: scroll;
+    width: 104%;
+    height: 200px;
+}
+.totalCart{
     position: relative;
-    top: -70px;
-    left: 90%;
+    width: 200px;
+    left: 55%;
+    text-align: center;
+}
+.amount{
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+}
+@media only screen and (min-width: 600px){
+    .totalCart{
+        position: relative;
+        width: 200px;
+        left: 70%;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .totalCart{
+        position: relative;
+        width: 200px;
+        left: 80%;
+        text-align: center;
+    }
 }

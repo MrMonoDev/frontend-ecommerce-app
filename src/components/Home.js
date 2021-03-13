@@ -54,6 +54,7 @@ function Home() {
               color={colorChange(data.status)}
               statusPosition={classChange(data.status)}
               classProduct="motherboards"
+              productType={dataMother}
             />
           ))}
         </TabPane>
@@ -72,6 +73,7 @@ function Home() {
               color={colorChange(data.status)}
               statusPosition={classChange(data.status)}
               classProduct="processors"
+              productType={dataProcessor}
             />
           ))}
         </TabPane>
@@ -161,7 +163,7 @@ function Product(props) {
         {shopIco === 0 ? (
           <ShoppingOutlined style={{ fontSize: 15 }} onClick={() => {
             const id = props.productId;
-            for(let product of dataMother){
+            for(let product of props.productType){
               if (id === product.id){
                 setcart(cart => [...cart, product]);
               }

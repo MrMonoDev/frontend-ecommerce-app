@@ -9,7 +9,7 @@
          "oldprice":"250",
          "rate":"2",
          "status":"On request",
-         "path": "https://static.gigabyte.com/Product/2/7219/2020043014292936e3a8c21e009a017fe8e955236fd249fc_src.png"
+         "path": "https://static.gigabyte.com/StaticFile/Image/Global/47e2789e1ea2584eefa0074efa2e7929/Product/24932/png/500"
     },
     {
         "id": "MDB2",
@@ -21,7 +21,7 @@
         "oldprice":"289",
         "rate":"4",
         "status":"In stock",
-        "path": "https://static.gigabyte.com/Product/2/7250/2020043017260151dd97d8399e4e19774fe67e304e62cbef_src.png"
+        "path": "https://static.gigabyte.com/StaticFile/Image/Global/d4c68f1a8658448d5df671ba132a5386/Product/25004/png/500"
     },
     {
         "id": "MDB3",
@@ -33,7 +33,7 @@
         "oldprice":"259.9",
         "rate":"3",
         "status":"On request",
-        "path": "https://static.gigabyte.com/Product/2/6895/20190702153642246d75ea4563aa946f3b1cf53e79a0559c_src.png"
+        "path": "https://static.gigabyte.com/StaticFile/Image/Global/138af6ab2ea893016aa7b699c77e710a/Product/22346/png/300"
     },
     {
         "id": "MDB4",
@@ -45,7 +45,7 @@
         "oldprice":"250",
         "rate":"5",
         "status":"In stock",
-        "path": "https://static.gigabyte.com/Product/2/7260/2020043010514619e7ab741564789040b012643ccd3bd093_src.png"
+        "path": "https://static.gigabyte.com/StaticFile/Image/Global/90a964355a52f86fc107c36f3da7fee2/Product/24917/png/500"
     },
     {
         "id": "MDB5",
@@ -58,6 +58,6 @@
         "oldprice":"129",
         "rate":"3",
         "status":"On request",
-        "path": "https://static.gigabyte.com/Product/2/7269/202005081803394251d044f11780b114bd6645001abaa42a_src.png"
+        "path": "https://static.gigabyte.com/StaticFile/Image/Global/9a0bdaed3a59cf5560b77ee4a577e094/Product/25138/png/500"
     }
 ]
