@@ -11,8 +11,7 @@ import image1 from "./img/gaming2.jpg";
 import image2 from "./img/gaming3.jpg";
 import image3 from "./img/gaming4.jpg";
 import "./styles/Home.less";
-import dataMother from "./data/Motherboards.json";
-import dataProcessor from "./data/Processors.json";
+import dataProducts from "./data/Products.json";
 import { ProductContext } from "./ContextProducts";
 
 function Home() {
@@ -39,9 +38,9 @@ function Home() {
     <Space direction="vertical" size="large">
       <CarouselProduct />
       <Tabs tabPosition="right">
-        <TabPane tab="Motherboards" key="1">
-          <h1>Motherboards</h1>
-          {dataMother.map((data) => (
+        <TabPane tab="All" key="1">
+          <h1>All</h1>
+          {dataProducts.map((data) => (
             <Product
               productId={data.id}
               title={data.title}
@@ -53,32 +52,10 @@ function Home() {
               oldprice={data.oldprice}
               color={colorChange(data.status)}
               statusPosition={classChange(data.status)}
-              classProduct="motherboards"
-              productType={dataMother}
+              classProduct="all"
+              productType={dataProducts}
             />
           ))}
-        </TabPane>
-        <TabPane tab="Processors" key="2">
-          <h1>Processors</h1>
-          {dataProcessor.map((data) => (
-            <Product
-              productId={data.id}
-              title={data.title}
-              description={data.description}
-              src={data.path}
-              rate={data.rate}
-              price={data.price}
-              status={data.status}
-              oldprice={data.oldprice}
-              color={colorChange(data.status)}
-              statusPosition={classChange(data.status)}
-              classProduct="processors"
-              productType={dataProcessor}
-            />
-          ))}
-        </TabPane>
-        <TabPane tab="RAM" key="3">
-          Content of Tab 3
         </TabPane>
       </Tabs>
     </Space>
