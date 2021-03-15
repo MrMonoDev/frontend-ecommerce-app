@@ -1,5 +1,6 @@
 [
-    {
+    {   
+        "class": "mothers",
         "id": "MDB1",
         "title": "Z490M GAMING X (rev. 1.0)",
         "description": ["Direct 11+1 Phases Power Design, 2-Way CrossFire™ Multi-Graphics,",
@@ -12,6 +13,7 @@
          "path": "https://static.gigabyte.com/StaticFile/Image/Global/47e2789e1ea2584eefa0074efa2e7929/Product/24932/png/500"
     },
     {
+        "class": "mothers",
         "id": "MDB2",
         "title": "Z490 AORUS XTREME (rev. 1.x)",
         "description": ["Intel® Z490 AORUS Motherboard with 16 Phases Digital VRM, Fins-Array II Heatsink,", 
@@ -24,6 +26,7 @@
         "path": "https://static.gigabyte.com/StaticFile/Image/Global/d4c68f1a8658448d5df671ba132a5386/Product/25004/png/500"
     },
     {
+        "class": "mothers",
         "id": "MDB3",
         "title": "X570 GAMING X (rev. 1.0)",
         "description": ["AMD X570 GAMING Motherboard with 10+2 Phases Digital VRM, Advanced", 
@@ -36,6 +39,7 @@
         "path": "https://static.gigabyte.com/StaticFile/Image/Global/138af6ab2ea893016aa7b699c77e710a/Product/22346/png/300"
     },
     {
+        "class": "mothers",
         "id": "MDB4",
         "title": "Z490 UD AC (rev. 1.0)",
         "description": ["Intel® Z490 Ultra Durable Motherboard with Direct 11+1 Phases Digital VRM,", 
@@ -48,6 +52,7 @@
         "path": "https://static.gigabyte.com/StaticFile/Image/Global/90a964355a52f86fc107c36f3da7fee2/Product/24917/png/500"
     },
     {
+        "class": "mothers",
         "id": "MDB5",
         "title": "Z490 VISION G (rev. 1.x)",
         "description": ["Intel® Z490 Creator Motherboard with Direct 12 Phases Power Design,", 
@@ -61,6 +66,7 @@
         "path": "https://static.gigabyte.com/StaticFile/Image/Global/9a0bdaed3a59cf5560b77ee4a577e094/Product/25138/png/500"
     },
     {   
+        "class": "cpus",
         "id": "CPU1",
         "title":"AMD Ryzen™ 5 3600X",
         "description":["Graphics Model",
@@ -79,6 +85,7 @@
         "path": "https://www.amd.com/system/files/2019-06/238593-ryzen-5-pib-left-facing-1260x709.png"
     },
     {   
+        "class": "cpus",
         "id": "CPU2",
         "title":"AMD Ryzen™ 7 3700X",
         "description":["Graphics Model",
@@ -97,6 +104,7 @@
         "path": "https://www.amd.com/system/files/2019-06/238593-ryzen-7-pib-left-facing-1260x709.png"
     },
     {   
+        "class": "cpus",
         "id": "CPU3",
         "title":"AMD Ryzen™ 7 2700X Processor",
         "description":["Graphics Model Discrete Graphics Card Required",
@@ -114,6 +122,7 @@
         "path": "https://www.amd.com/system/files/2019-06/238593-ryzen-7-pib-left-facing-1260x709.png"
     },
     {   
+        "class": "cpus",
         "id": "CPU4",
         "title":"AMD Ryzen™ 9 3900X",
         "description":["Graphics Model Discrete Graphics Card Required",
@@ -130,7 +139,9 @@
         "status":"On request",
         "path": "https://www.amd.com/system/files/2019-11/238593-ryzen-9-pib-left-facing-1260x709_0.png"
     },
-    {   "id": "CPU5",
+    {  
+        "class": "cpus",
+        "id": "CPU5",
         "title":"AMD Ryzen™ Threadripper™ 3960X Processor",
         "description":["Graphics Model Discrete Graphics Card Required",
         "# of CPU Cores 24",

@@ -14,7 +14,32 @@ import "./styles/Home.less";
 import dataProducts from "./data/Products.json";
 import { ProductContext } from "./ContextProducts";
 
-function Home() {
+
+function Home(){
+
+  const { TabPane } = Tabs;
+  return (
+    <Space direction="vertical" size="large">
+      <CarouselProduct />
+      <Tabs tabPosition="right">
+        <TabPane tab="Motherboards" key="1">
+          <Items
+          itemTitle = "Motherboards"
+          itemType = "mothers"
+          />
+        </TabPane>
+        <TabPane tab="Processors" key="2">
+          <Items
+          itemTitle = "Processors"
+          itemType = "cpus"
+          />
+        </TabPane> 
+      </Tabs>
+    </Space>
+  );
+} 
+
+function Items(props) {
 
   const colorChange = (color) => {
     if (color === "On request") {
@@ -31,16 +56,11 @@ function Home() {
     }
   };
 
-  const { TabPane } = Tabs;
-  
-
   return (
-    <Space direction="vertical" size="large">
-      <CarouselProduct />
-      <Tabs tabPosition="right">
-        <TabPane tab="All" key="1">
-          <h1>All</h1>
+        <div>
+          <h1>{props.itemTitle}</h1>
           {dataProducts.map((data) => (
+            data.class === props.itemType? 
             <Product
               productId={data.id}
               title={data.title}
@@ -55,10 +75,8 @@ function Home() {
               classProduct="all"
               productType={dataProducts}
             />
-          ))}
-        </TabPane>
-      </Tabs>
-    </Space>
+          : ''))}
+        </div>      
   );
 }
 
