@@ -17,23 +17,23 @@ import { ProductContext } from "./ContextProducts";
 
 function Home(){
 
-  const { TabPane } = Tabs;
+const { TabPane } = Tabs; 
+const itemProduct = 
+[{name:"Motherboards",type:"mothers",key:"1"},
+{name:"Processors",type:"cpus",key:"2"}]
+ 
   return (
     <Space direction="vertical" size="large">
       <CarouselProduct />
       <Tabs tabPosition="right">
-        <TabPane tab="Motherboards" key="1">
-          <Items
-          itemTitle = "Motherboards"
-          itemType = "mothers"
-          />
-        </TabPane>
-        <TabPane tab="Processors" key="2">
-          <Items
-          itemTitle = "Processors"
-          itemType = "cpus"
-          />
-        </TabPane> 
+        {itemProduct.map(element => (
+          <TabPane tab={element.name} key={element.key}>
+            <Items
+            itemTitle = {element.name}
+            itemType= {element.type}
+            />
+          </TabPane>
+        ))}
       </Tabs>
     </Space>
   );
@@ -59,7 +59,7 @@ function Items(props) {
   return (
         <div>
           <h1>{props.itemTitle}</h1>
-          {dataProducts.map((data) => (
+          {dataProducts.map(data => (
             data.class === props.itemType? 
             <Product
               productId={data.id}
@@ -76,7 +76,7 @@ function Items(props) {
               productType={dataProducts}
             />
           : ''))}
-        </div>      
+        </div>
   );
 }
 
