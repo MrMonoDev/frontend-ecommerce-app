@@ -1,0 +1,60 @@
+@import './Main.less';
+
+ @margLeft:10px;
+
+.shoppings{
+    margin-top: 50px;
+}
+.shopPrice{
+    .shopOldPrice();
+    top: @margLeft;
+    left: @margLeft;
+}
+.shopOldPrice{
+    position: relative;
+    left: @margLeft + 10px;
+}
+.shopDeleteIco{
+    position: relative;
+    left: 10px;
+    transition: transform .2s;
+        &:hover{
+        color: #colors[gBlue7];
+        transform: scale(1.5);
+        }
+}
+.buttonTerms{
+    float: right;
+}
+.termsNconditions{
+    overflow-y: scroll;
+    width: 104%;
+    height: 200px;
+}
+.totalCart{
+    position: relative;
+    width: 200px;
+    left: 55%;
+    text-align: center;
+}
+.amount{
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+}
+@media only screen and (min-width: 600px){
+    .totalCart{
+        position: relative;
+        width: 200px;
+        left: 70%;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 1024px){
+    .totalCart{
+        position: relative;
+        width: 200px;
+        left: 80%;
+        text-align: center;
+    }
+}

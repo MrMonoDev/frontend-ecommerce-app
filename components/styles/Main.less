@@ -1,0 +1,153 @@
+@margin: 10px;
+#margin{
+    margin-top: 45px;
+    margin-bottom: 45px;
+}
+#center{
+    .images{
+        position: relative;
+        float: none;
+        margin: 0 auto !important;
+    }
+    .containers{
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0px;
+        bottom: 0;
+        margin: 0 auto;
+    }
+}
+#colors() {
+    gBlue1:#f0f5ff;
+    gBlue2:#d6e4ff;
+    gBlue3:#adc6ff;
+    gBlue4:#85a5ff;
+    gBlue5:#597ef7; 
+    gBlue6:#2f54eb;//white text
+    gBlue7:#1d39c4;//white text
+    gBlue8:#10239e;//white text
+    gBlue9:#061178;//white text
+    gBlue10:#030852;//white text
+}
+#bnw-colors() {
+    gray1:#ffffff;
+    gray2:#fafafa;
+    gray3:#f5f5f5;
+    gray4:#f0f0f0;
+    gray5:#d9d9d9; 
+    gray6:#bfbfbf;//white text
+    gray7:#8c8c8c;//white text
+    gray8:#595959;//white text
+    gray9:#434343;//white text
+    gray10:#262626;//white text
+    gray11:#1f1f1f;//white text
+    gray12:#141414;//white text
+    gray13:#000000;//white text
+}
+#left-animation{
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes slideInLeft {
+        0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+        }
+        @keyframes slideInLeft {
+        0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }    
+}
+#right-animation{
+    -webkit-animation-name: slideInRight;
+        animation-name: slideInRight;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes slideInRight {
+        0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+        }
+        @keyframes slideInRight {
+        0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+        visibility: visible;
+        }
+        100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        }
+}
+#down-fade-animation{
+        -webkit-animation-name: fadeInDown;
+        animation-name: fadeInDown;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        }
+        @-webkit-keyframes fadeInDown {
+        0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        }
+        100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        }
+        }
+        @keyframes fadeInDown {
+        0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        }
+        100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+        }
+}
+#carbon-texture{
+    background:
+    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+    background-color: #131313;
+    background-size: 20px 20px;
+}
+
+
+
