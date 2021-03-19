@@ -25,7 +25,7 @@ const itemProduct =
   return (
     <Space direction="vertical" size="large">
       <CarouselProduct />
-      <Tabs tabPosition="right">
+      <Tabs className="taps_position" tabPosition="right">
         {itemProduct.map(element => (
           <TabPane tab={element.name} key={element.key}>
             <Items

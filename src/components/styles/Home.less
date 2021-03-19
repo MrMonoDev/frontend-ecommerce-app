@@ -4,7 +4,7 @@
     #center.images();
     width: 100%;
     height: 200px;
-    bottom: 100px;
+    margin-bottom: 50px;
     img{
         width: 480px;
         height: 280px;
@@ -72,13 +72,16 @@
     .first-status();
     left: @margin * 19;
 }
+.taps_position{
+    top:70px;
+}
 //tablet
 @media only screen and (min-width: 600px){
     .carousel-container{
         #center.images();
         width: 100%;
         height: 400px;
-        bottom: 50px;
+        margin-bottom: 50px;
         img{
             width: 768px;
             height: 400px;
@@ -100,16 +103,21 @@
             font-size: 16px;
         }
     }
+    .all{
+        position: relative;
+        margin-left: 1px;
+        margin-bottom: 2px;
+        display: inline-block;
+        white-space: pre-wrap;
+        vertical-align: top;
+        #left-animation();
+    }
+    .taps_position{
+        top:-10px;
+    }
 }
-.all{
-    position: relative;
-    margin-left: 1px;
-    margin-bottom: 2px;
-    display: inline-block;
-    white-space: pre-wrap;
-    vertical-align: top;
-    #left-animation();
-}
+
+
 //laptop
 @media only screen and (min-width: 1024px) {
     .carousel-container{
@@ -117,7 +125,7 @@
         #center.images();
         width: 100%;
         height: 500px;
-        bottom: 50px;
+        margin-bottom: 50px;
         img{
             width: 100%;
             height: 500px;
@@ -147,6 +155,9 @@
         vertical-align: top;
         #left-animation();
         
+    }
+    .taps_position{
+        top:-10px;
     }
     
 }
