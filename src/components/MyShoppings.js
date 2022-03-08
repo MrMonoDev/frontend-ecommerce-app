@@ -1,12 +1,13 @@
-import React, {useContext, useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { ConfigProvider, List, Button, Typography, Modal} from 'antd';
 import {DeleteOutlined} from '@ant-design/icons'
 import './styles/MyShoppings.less';
-import {ProductContext} from './ContextProducts';
+import store from '../redux/store';
+import * as actions from '../redux/actions'
 
 function MyShoppings () {
   // eslint-disable-next-line
-    const [cart, setcart] = useContext(ProductContext);
+    const [cart, setCart] = useState([]);
     const {Text, Title} = Typography;
     var total = 0;
     for (var item of cart){
@@ -22,6 +23,16 @@ function MyShoppings () {
     const termsCancel = () => {
       setterms(false);
     }
+
+    useEffect(()=>{
+      const list = store.getState().cart
+      store.subscribe(()=>{
+        const list = store.getState().cart
+        setCart(list)
+      })
+      setCart(list)
+    },[])
+
     return (
       <div className="shoppings">
       <ConfigProvider>
@@ -35,13 +46,12 @@ function MyShoppings () {
           actions={[
             <div className="shopDeleteIco"><DeleteOutlined style={{fontSize:25}} onClick={() => {
               const id = item.id;
-              const productList = new Set(cart);
+              const productList = store.getState().cart
               for(let product of productList){
                 if (id === product.id){
-                  productList.delete(product);
+                  store.dispatch(actions.removeFromCart(product))
                 }
               }  
-              setcart(Array.from(productList));
             }}/></div>
           ]}
           extra={

@@ -1,17 +1,17 @@
-import React, {useContext, useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import Image from "./img/valhala1000.png";
 import { ShoppingCartOutlined, UserOutlined} from "@ant-design/icons";
 import "./styles/Nav.less";
 import { Badge } from "antd";
-import {ProductContext} from './ContextProducts';
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
 import moment from "moment";
+import store from "../redux/store";
 
 
 export const Nav = () => {
   // eslint-disable-next-line
-  const [cart, setcart] = useContext(ProductContext);
+  const [cart, setCart] = useState([]);
   const { Option } = Select;
   const [activity, setactivity] = useState(false);
   const [shiftUser, setshiftUser] = useState("New User Account");
@@ -33,6 +33,15 @@ export const Nav = () => {
       <Option value="@outlook.com">@outlook.com</Option>
     </Select>
   );
+
+  useEffect(()=>{
+    const items = store.getState().cart
+    store.subscribe(()=>{
+      const items = store.getState().cart
+      setCart(items)
+    });
+    setCart(items)
+  },[])
 
   const newUser = () => {
     if (shiftUser === "Login"){
@@ -97,10 +106,11 @@ export const Nav = () => {
   const deactive = () => {
     setactivity(false);
   }
+  
   return (
-    <div class="header-nav">
+    <div className="header-nav">
       <Link to="/">
-        <img class="img-nav" src={Image} alt="Logo" />
+        <img className="img-nav" src={Image} alt="Logo" />
       </Link>
       <Link to="#">
         <div className="user-nav">

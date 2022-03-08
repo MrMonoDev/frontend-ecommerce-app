@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel, Card, Space, Rate, Typography, Tag, Tabs } from "antd";
 import {
   ShoppingOutlined,
   ShoppingFilled,
-  HeartFilled,
-  HeartOutlined,
 } from "@ant-design/icons";
 import image0 from "./img/gaming1.png";
 import image1 from "./img/gaming2.jpg";
@@ -12,12 +10,12 @@ import image2 from "./img/gaming3.jpg";
 import image3 from "./img/gaming4.jpg";
 import "./styles/Home.less";
 import dataProducts from "./data/Products.json";
-import { ProductContext } from "./ContextProducts";
-
+import store from "../redux/store";
+import * as actions from "../redux/actions";
 
 function Home(){
 
-const { TabPane } = Tabs; 
+const { TabPane } = Tabs;
 const itemProduct = 
 [{name:"Motherboards",type:"mothers",key:"1"},
 {name:"Processors",type:"cpus",key:"2"}]
@@ -57,7 +55,7 @@ function Items(props) {
   };
 
   return (
-        <div>
+        <div className="">
           <h1>{props.itemTitle}</h1>
           {dataProducts.map(data => (
             data.class === props.itemType? 
@@ -82,8 +80,8 @@ function Items(props) {
 
 function CarouselProduct() {
   return (
-    <div className="carousel-container">
       <Carousel
+        className="carousel-container"
         autoplaySpeed={2000}
         fade={true}
         speed={3000}
@@ -111,7 +109,6 @@ function CarouselProduct() {
           <img src={image3} alt="image4"></img>
         </div>
       </Carousel>
-    </div>
   );
 }
 
@@ -127,18 +124,32 @@ function changeAction(value) {
 
 
 function Product(props) {
-  const [cart, setcart] = useContext(ProductContext);
+  const [cart, setCart] = useState([]);
   const { Text } = Typography;
   const { Meta } = Card;
-  var [shopIco, setshopIco] = useState(()=>{
-    for(let item of cart){
-      if (item.title === props.title){
-    return 1;
+  let [shopIco, setshopIco] = useState();
+
+  useEffect(()=>{
+    const list = store.getState().cart
+    store.subscribe(()=>{
+      const list = store.getState().cart
+      setCart(list)
+      setshopIco(evaluateShopIcon(list))
+    });
+    setCart(list)
+    setshopIco(evaluateShopIcon(list))
+  },[]);
+
+  const evaluateShopIcon = (list)=>{
+      for(let item of list){
+        if (item.title === props.title){
+      return 1;
+        }
       }
+      return 0;
     }
-    return 0;
-  });
-  var [loveIco, setloveIco] = useState(0);
+  
+  let [loveIco, setloveIco] = useState(0);
   
   return (
     <div id={props.productId} className={props.classProduct}>
@@ -160,24 +171,23 @@ function Product(props) {
             const id = props.productId;
             for(let product of props.productType){
               if (id === product.id){
-                setcart(cart => [...cart, product]);
+                store.dispatch(actions.addToCart(product))
               }
             }
           }} />
         ) : (
           <ShoppingFilled style={{ fontSize: 15 }} onClick={() => {
             const id = props.productId;
-            const productList = new Set(cart);
+            const productList = store.getState().cart
             for(let product of productList){
                if (id === product.id){
-                productList.delete(product);
+                store.dispatch(actions.removeFromCart(product))
               }
-            }  
-            setcart(Array.from(productList));        
+            }        
           }} />
         )}
       </div>
-      <div
+      {/* <div
         className="love-ico"
         onClick={() => setloveIco((loveIco = changeAction(loveIco)))}
       >
@@ -186,7 +196,7 @@ function Product(props) {
         ) : (
           <HeartFilled style={{ fontSize: 15 }} />
         )}
-      </div>
+      </div> */}
       <div className={props.statusPosition}>
         <Tag color={props.color}>{props.status}</Tag>
       </div>
